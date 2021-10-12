@@ -10,7 +10,13 @@
 
         public Address Address { get; set; }
 
-        public string Location { get; set; }
+        public Location Location { get; set; }
 
+    }
+
+    public class Location
+    {
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
     }
 }
