@@ -97,12 +97,12 @@ namespace LSB.API
 
             services.AddScoped<ISqlDBManager>(x =>
             {
-                return new SqlDBManager(Configuration[ConfigKeys.SCEToolKitDBConnectionString]);
+                return new SqlDBManager(Configuration[ConfigKeys.LSBDBConnectionString]);
             });
 
             services.AddScoped<ICosmosManager>(x =>
             {
-                return new CosmosManager(Configuration[ConfigKeys.SCEToolKitDBConnectionString]);
+                return new CosmosManager(Configuration[ConfigKeys.LSBDBConnectionString]);
             });
         }
 

@@ -30,6 +30,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{21DE1C9B-9EBE-4F72-836A-FA6D426ABA3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetsShareUI", "UI\LetsShareUI\LetsShareUI.csproj", "{7ADD825F-1801-4943-A708-7C376B979723}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +68,10 @@ Global
 		{7077F692-F8F5-407A-BA81-1C221A3B18CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7077F692-F8F5-407A-BA81-1C221A3B18CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7077F692-F8F5-407A-BA81-1C221A3B18CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ADD825F-1801-4943-A708-7C376B979723}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ADD825F-1801-4943-A708-7C376B979723}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ADD825F-1801-4943-A708-7C376B979723}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ADD825F-1801-4943-A708-7C376B979723}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +84,7 @@ Global
 		{CC276D2A-5D6F-4DDC-8ECD-8197C71B01BA} = {C91813EA-DC40-4C94-8726-D7EF1DA0BACE}
 		{9BDA393A-407A-40B0-B3A9-EACEDE29B3F4} = {A4ACB9EF-8EA7-48B1-82E1-9DFDE5B57D90}
 		{7077F692-F8F5-407A-BA81-1C221A3B18CF} = {2B17BC25-7025-4953-8BB7-5BFFD4AFFEAA}
+		{7ADD825F-1801-4943-A708-7C376B979723} = {21DE1C9B-9EBE-4F72-836A-FA6D426ABA3B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {60B2DE16-E809-4323-BC37-F2FB66AB2E8D}
