@@ -1,4 +1,5 @@
 ﻿using LSB.Models;
+using LSB.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,40 +10,70 @@ using System.Threading.Tasks;
 
 namespace LSB.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/transactions")]
     [ApiController]
     public class TransactionController : ControllerBase
     {
-        // GET: api/<TransactionController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private TransactionRepository _transactionRepository;
+
+        public TransactionController(TransactionRepository transactionRepository)
         {
-            return new string[] { "value1", "value2" };
+            _transactionRepository = transactionRepository;
+        }
+        // GET: api/<TransactionController>
+        [HttpGet, Route("api/transactions/{transactionId}")]
+        public async Task<IActionResult> GetById(string transactionId)
+        {
+            var transaction = _transactionRepository.GetTransactionById(transactionId);
+            if (transaction == null)
+            {
+                return NotFound();
+            }
+            return Ok(transaction);
         }
 
         // GET api/<TransactionController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet, Route("api/transactions/user/{userId}")]
+        public async Task<IActionResult> GetTransactionsByUserId(string userId)
         {
-            return "value";
+            var transactions = await _transactionRepository.GetTransactionsByUserId(userId);
+            if (transactions == null)
+            {
+                return NotFound();
+            }
+            return Ok(transactions);
         }
 
         // POST api/<TransactionController>
-        [HttpPost]
-        public void Post([FromBody] Transaction transaction)
+        [HttpPost, Route("api/transactions")]
+        public async Task<IActionResult> CreateTransactionAsync([FromBody] Transaction transaction)
         {
+            var transactionCreated = await _transactionRepository.CreateTransaction(transaction);
+            if (transactionCreated == null)
+            {
+                return NotFound();
+            }
+            return Ok(transactionCreated);
         }
 
         // PUT api/<TransactionController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut, Route("api/transactions/{transactionId}")]
+        public async Task<IActionResult> UpdateTransactionAsync(string transactionId, [FromBody] Transaction transaction)
         {
+            var transactionUpdated = await _transactionRepository.UpdateTransaction(transactionId, transaction);
+            if (transactionUpdated == null)
+            {
+                return NotFound();
+            }
+            return Ok(transactionUpdated);
         }
 
         // DELETE api/<TransactionController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete, Route("api/transactions/{transactionId}")]
+        public async Task<IActionResult> DeleteTransactionAsync(string transactionId)
         {
+            await _transactionRepository.DeleteTransaction(transactionId);
+            return Ok();
         }
     }
 }
